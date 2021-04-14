@@ -1,0 +1,23 @@
+
+<div class="alert alert-success" *ngIf="this.success">
+  <strong>{{success}}</strong>
+</div>
+<div class="alert alert-danger" *ngIf="this.error">
+  <strong>{{error}}</strong>
+</div>
+
+  <form #registerFrom = "ngForm" (ngSubmit) = "addEvent()" autocomplete="off">
+    <h2 class="text-center text-primary">
+       Create A Event
+    </h2>
+    <hr>
+    <div class="form-group" style="width: 50%; margin: auto;">
+
+        Date: <input type="date" class="form-control" [(ngModel)]="eventModel.Date" name="Date" require>
+        Time: <input type="time" class="form-control" [(ngModel)]="eventModel.Time" name="Time" require>
+       Event Name: <input type="text" class="form-control" [(ngModel)]="eventModel.EventName" name="EventName" require>
+        Description: <input type="text" class="form-control" [(ngModel)]="eventModel.Description" name="Description" require>
+
+        <button class="btn btn-success mr-2 mt-4" type="submit">Create</button>
+    </div>
+</form>

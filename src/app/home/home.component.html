@@ -1,0 +1,41 @@
+<div *ngIf="EventArray.length > 0; then Allevent else emptyEvent"></div>
+
+
+
+<ng-template #Allevent>
+  <h1>All Current Events</h1>
+  <div class="alert alert-success" *ngIf="this.success">
+    <strong>{{success}}</strong>
+  </div>
+  <div class="alert alert-danger" *ngIf="this.error">
+    <strong>There is an error</strong>
+  </div>
+  <div class="card mt-3" *ngFor="let item of EventArray">
+    <div class="card-header" style="display: flex; justify-content: space-between">
+      <div>
+        <label class="text-uppercase font-weight-bold" >Date</label>
+        <p>{{item.date | date: 'MMMM d' }}</p>
+      </div>
+      <div>
+        <label class="text-uppercase font-weight-bold" >Time</label>
+        <p>{{item.time}}</p>
+      </div>
+      <div>
+        <label class="text-uppercase font-weight-bold" >Event Name</label>
+        <p>{{item.eventName}}</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <label class="text-uppercase font-weight-bold" >Description</label>
+        <p>{{item.description}}</p>
+      </div>
+      <button class="btn btn-primary" (click)="attend(item.id)">Attend</button>
+    </div>
+  </div>
+</ng-template>
+
+
+<ng-template #emptyEvent>
+  <h1>There's no event to Attend yet</h1>
+</ng-template>

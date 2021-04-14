@@ -1,0 +1,22 @@
+<div class="alert alert-success" *ngIf="this.success">
+    <strong>Success!</strong>
+</div>
+<div class="alert alert-danger" *ngIf="this.error">
+    <strong>There is an error</strong>
+</div>
+<form #registerFrom = "ngForm" (ngSubmit) = "register()" autocomplete="off">
+    <h2 class="text-center text-primary">
+        Sign up
+    </h2>
+    <hr>
+    <div class="form-group" style="width: 50%; margin: auto;">
+
+        Email: <input type="email" class="form-control" [(ngModel)]="userFields.Email" name="Email" require>
+        User Name: <input type="email" class="form-control" [(ngModel)]="userFields.UserName" name="UserName" require>
+        First Name: <input type="text" class="form-control" [(ngModel)]="userFields.FirstName" name="FirstName" require>
+        Last Name: <input type="text" class="form-control" [(ngModel)]="userFields.LastName" name="LastName" require>
+        Password: <input type="password" class="form-control" [(ngModel)]="userFields.Password" name="Password" require>
+        confirm password: <input type="password" class="form-control" [(ngModel)]="userFields.ConfirmPassword" name="ConfirmPassword" require>
+        <button class="btn btn-success mr-2 mt-4" type="submit">Register</button>
+    </div>
+</form>

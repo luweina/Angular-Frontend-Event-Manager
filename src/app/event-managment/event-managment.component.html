@@ -1,0 +1,36 @@
+
+<div *ngIf="EventArray.length > 0; then Allevent else noEvent"></div>
+
+<ng-template #Allevent>
+    <div class="card mt-3" *ngFor="let item of EventArray">
+        <div class="card-header" style="display: flex; justify-content: space-between">
+            <div>
+                <label style="font-weight: bold">Date</label>
+                <p>{{item.date | date: 'MMMM d' }}</p>
+            </div>
+            <div>
+                <label style="font-weight: bold">Time</label>
+                <p>{{item.time}}</p>
+            </div>
+            <div>
+                <label style="font-weight: bold">Event Name</label>
+                <p>{{item.eventName}}</p>
+            </div>
+        </div>
+        <div class="card-body">
+            <div>
+                <label style="font-weight: bold">Description</label>
+                <p>{{item.description}}</p>
+            </div>
+            <div>
+                <button class="btn btn-outline-info mr-2" (click)="viewAttendees(item.id)">View Attendees</button>
+                
+                <button class="btn btn-danger" (click)="deleteEvent(item.id)">Delete Event</button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #noEvent>
+    <h1>No Event</h1>
+</ng-template>

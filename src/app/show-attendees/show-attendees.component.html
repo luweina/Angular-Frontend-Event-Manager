@@ -1,0 +1,32 @@
+<p>show-attendees works!</p>
+<div
+  class="card mt-3"
+>
+  <div class="card-header" style="display: flex; justify-content: space-between">
+    <div>
+      <label style="font-weight: bold">Date</label>
+      <p>{{date | date: 'MMMM d' }}</p>
+    </div>
+    <div>
+      <label style="font-weight: bold">Time</label>
+      <p>{{time}}</p>
+    </div>
+    <div>
+      <label style="font-weight: bold">Event Name</label>
+      <p>{{eventName}}</p>
+    </div>
+  </div>
+  <div *ngIf="attendeeList.length > 0; then Allevent else emptyEvent"></div>
+</div>
+<ng-template #Allevent>
+  <div class="card-body">
+    <p>Attendees:</p>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let attendee of attendeeList">{{attendee.userName}}</li>
+    </ul>
+  </div>
+</ng-template>
+
+<ng-template #emptyEvent>
+  <h1>There's no Attendees yet</h1>
+</ng-template>

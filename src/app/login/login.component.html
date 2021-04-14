@@ -1,0 +1,16 @@
+
+<form #registerFrom = "ngForm" (ngSubmit) = "login()" autocomplete="off">
+    <h2 class="text-center text-primary">
+       Login
+    </h2>
+    <hr>
+    <div class="form-group" style="width: 50%; margin: auto;">
+
+      
+        User Name: <input type="email" class="form-control" [(ngModel)]="username" name="username" require>
+     
+        Password: <input type="password" class="form-control" [(ngModel)]="password" name="password" require>
+      
+        <button class="btn btn-primary mr-2 mt-4" type="submit">Login</button>
+    </div>
+</form>
